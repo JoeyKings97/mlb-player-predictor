@@ -1,44 +1,111 @@
-# MLB Player Stats Predictor
-This project uses machine learning to predict MLB player performance for upcoming games. It analyzes opponent teams, ballpark effects, weather conditions, pitcher-batter matchups, and recent trends to forecast individual player stats such as hits, RBIs, and strikeouts.
+# MLB Player Stats Predictor ⚾
 
-## Features
-- Real-time MLB data using pybaseball
-- Machine learning predictions with scikit-learn and XGBoost
-- Weather and ballpark-aware stat forecasting (planned)
-- Flask-based web dashboard (in development)
+This project uses machine learning and real-time MLB data to predict player performance for daily matchups. It analyzes batter vs. pitcher history, current season data, and team schedules to generate accurate stat projections for both hitters and pitchers.
 
-## Technologies Used
-Python 3.13, Pandas, NumPy, scikit-learn, XGBoost, pybaseball, Flask, python-dotenv
+---
 
-## Getting Started
-1. Clone the repository:  
-git clone https://github.com/YOUR_USERNAME/mlb-player-predictor.git  
-cd mlb-player-predictor
+## 🔧 Features
 
-2. Set up the virtual environment:  
-python -m venv venv  
-venv\Scripts\activate
+- ✅ **Automated Daily Matchup Analysis**
+  - Fetches the current day's MLB schedule
+  - Looks up batter vs. pitcher history using Statcast
+  - Filters by active players only
 
-3. Install dependencies:  
-pip install -r requirements.txt
+- 🔮 **Stat Predictions Using Machine Learning**
+  - Predicts key stats for upcoming games:
+    - **Pitcher Stats:** Strikeouts, Hits Allowed, Fantasy Score, Walks, Earned Runs, etc.
+    - **Hitter Stats:** Total Bases, Home Runs, RBIs, Hits+Runs+RBIs, Stolen Bases, etc.
 
-4. Create a .env file in the root directory with your API keys:  
-WEATHER_API_KEY=your_api_key_here
+- 📊 **Data Storage**
+  - Saves raw data and predictions to CSV files in the `data/` folder
+  - Models stored in `models/` for reuse and evaluation
 
-## Example Usage
-To fetch player stats for testing:  
-python scripts/fetch_data.py
+- 🛠️ **Modular Python Scripts**
+  - `scripts/` contains all automation and analysis scripts
+  - Easy to extend or schedule (via cron/Task Scheduler)
 
-## Roadmap
-- Initial data fetch script (done)  
-- Add weather and venue factors  
-- Build predictive models  
-- Create a Flask dashboard  
-- Full game simulation and report system
+---
 
-## License
-MIT License
+## 📁 Folder Structure
 
-## Author
-Jose Reyes  
-[https://github.com/JoeyKings97](https://github.com/JoeyKings97)
+MLB-PLAYER-STATS-PREDICTOR/
+├── data/ # Matchup CSVs and prediction outputs
+├── models/ # Trained ML models (.pkl)
+├── scripts/ # Python scripts for automation and analysis
+│ ├── matchup_lookup.py
+│ ├── fetch_schedule.py
+│ └── predict_stats.py
+├── requirements.txt # Python dependencies
+└── README.md # This file
+
+
+---
+
+## 🧠 Technologies Used
+
+- [Python 3.x](https://www.python.org/)
+- [pybaseball](https://github.com/jldbc/pybaseball)
+- [pandas](https://pandas.pydata.org/)
+- [scikit-learn](https://scikit-learn.org/)
+- [NumPy](https://numpy.org/)
+- [matplotlib / seaborn](https://matplotlib.org/)
+
+---
+
+## 🚀 Getting Started
+
+1. Clone this repo and install dependencies:
+
+   ```bash
+   git clone https://github.com/yourusername/MLB-PLAYER-STATS-PREDICTOR.git
+   cd MLB-PLAYER-STATS-PREDICTOR
+   pip install -r requirements.txt
+
+2. Run your first matchup lookup:
+
+    ```bash
+    python scripts/matchup_lookup.py
+
+3. Automate Daily Analysis:
+
+    ```bash
+    python scripts/fetch_schedule.py
+
+## 📈 Predictions (Coming Soon)
+Once trained, the system will use past player stats and situational features to predict performance metrics like:
+
+Home Runs
+
+Total Bases
+
+Hitter Fantasy Score
+
+Pitcher Strikeouts
+
+Hits Allowed
+
+Walks
+
+Earned Runs
+
+And more...
+
+## ✅ Status
+ Matchup data retrieval
+
+ Daily schedule fetching
+
+ Machine learning model training
+
+ Stat predictions integration
+
+ Dashboard/Visualization (optional)
+
+ ## )
+
+📌 License
+This project is open-source and MIT licensed.
+
+yaml
+Copy
+Edit
